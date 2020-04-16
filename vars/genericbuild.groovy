@@ -7,7 +7,7 @@ def call(Map config=[:]) {
         stage('Build') {
             try {
                 echo 'Building....'
-                sh 'dotnet build ConsoleApp1'
+                sh 'dotnet build ' + config.target
                 releasenotes(changes:"true")
             }
             catch(ex) {
